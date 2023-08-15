@@ -58,8 +58,6 @@ class TestB{
                     return true;
                 }else if (findWay(map,i,j - 1)){
                     return true;
-                }else if (findWay(map,i - 1,j)){
-                    return true;
                 }else {
                     map[i][j] = 3;
                     return false;
