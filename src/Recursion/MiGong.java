@@ -19,9 +19,9 @@ public class MiGong {
         map[3][2] = 1;
 
         System.out.println("==========迷宫地图==========");
-        for (int i = 0; i < map.length; i++){
-            for (int j = 0; j < map[i].length; j++){
-                System.out.print(map[i][j] + "\t");
+        for (int[] ints : map) {
+            for (int anInt : ints) {
+                System.out.print(anInt + "\t");
             }
             System.out.println();
         }
@@ -30,9 +30,9 @@ public class MiGong {
         b.findWay(map,1,1);
 
         System.out.println("=========迷宫地图路线=========");
-        for (int i = 0; i < map.length; i++){
-            for (int j = 0; j < map[i].length; j++){
-                System.out.print(map[i][j] + "\t");
+        for (int[] ints : map) {
+            for (int anInt : ints) {
+                System.out.print(anInt + "\t");
             }
             System.out.println();
         }
