@@ -27,7 +27,7 @@ public class MiGong {
         }
 
         TestB b = new TestB();
-        b.findWay(map,4,1);
+        b.findWay(map,1,1);
 
         System.out.println("=========迷宫地图路线=========");
         for (int i = 0; i < map.length; i++){
