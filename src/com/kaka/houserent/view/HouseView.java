@@ -68,10 +68,24 @@ public class HouseView {
     }
 
     //退出确认
-    public void exit(){
+    public void exitHouse(){
         char c = Utility.readConfirmSelection();
         if (c == 'Y'){
             loop = false;
+        }
+    }
+
+    //查找房屋信息
+    public void findHouse(){
+        System.out.println("====================查找房屋信息====================");
+        System.out.print("请输入id：");
+        int findId = Utility.readInt();
+        //调用方法
+        House house = houseService.findByiId(findId);
+        if (house != null){
+            System.out.println(house);
+        }else {
+            System.out.println("查无次房");
         }
     }
 
@@ -92,7 +106,7 @@ public class HouseView {
                     addHouse();
                     break;
                 case '2':
-                    System.out.println("查找");
+                    findHouse();
                     break;
                 case '3':
                     delHouse();
@@ -104,7 +118,7 @@ public class HouseView {
                     listHouse();
                     break;
                 case '6':
-                   exit();
+                   exitHouse();
                     break;
             }
         }while (loop);
