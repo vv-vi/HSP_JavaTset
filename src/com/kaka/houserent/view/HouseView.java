@@ -7,7 +7,9 @@ import com.kaka.houserent.utils.Utility;
 public class HouseView {
     private boolean loop = true;//控制菜单显示
     private char key = ' ';//接收用户输入选择
-    private HouseService houseService = new HouseService(10);
+
+    //显示房屋信息
+    private HouseService houseService = new HouseService(2);
     public void listHouse(){
         System.out.println("======================房屋列表====================");
         System.out.println("编号\t\t房主\t\t电话\t\t地址\t\t月租\t\t\t状态");
@@ -20,6 +22,31 @@ public class HouseView {
         }
         System.out.println("================================================\n");
     }
+
+    //新增房屋
+    public void addHouse(){
+        System.out.println("====================新增房屋信息====================");
+        System.out.print("姓名：");
+        String name = Utility.readString(8);
+        System.out.print("电话：");
+        String phone = Utility.readString(12);
+        System.out.print("地址：");
+        String adress = Utility.readString(8);
+        System.out.print("房租：");
+        int rent = Utility.readInt();
+        System.out.print("状态：");
+        String state = Utility.readString(8);
+        //添加新的房屋信息
+        House newHouse = new House(0, name, phone, adress, rent, state);
+        if (houseService.add(newHouse)){
+            System.out.println("添加房屋成功");
+        }else {
+            System.out.println("添加房屋失败");
+        }
+    }
+
+
+
     //界面方法，显示主菜单
     public void mainMeun(){
         do {
@@ -34,7 +61,7 @@ public class HouseView {
             key = Utility.readChar();
             switch (key){
                 case '1':
-                    System.out.println("新增");
+                    addHouse();
                     break;
                 case '2':
                     System.out.println("查找");

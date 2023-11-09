@@ -75,8 +75,8 @@ public class House {
         return id +
                 "\t\t" + name  +
                 "\t\t" + phone +
-                "\t\t" + address +
-                "\t\t" + rent +
+                "\t\t " + address +
+                "\t" + rent +
                 "\t\t" + state ;
 
     }
