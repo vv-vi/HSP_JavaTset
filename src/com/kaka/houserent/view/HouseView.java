@@ -85,8 +85,70 @@ public class HouseView {
         if (house != null){
             System.out.println(house);
         }else {
-            System.out.println("查无次房");
+            System.out.println("查无此房");
         }
+    }
+
+    //修改房屋信息
+    public void updataHouse(){
+        System.out.println("====================修改房屋信息====================");
+        System.out.println("请输入要修改的房屋的信(-1表示退出)");
+        int upDataId = Utility.readInt();
+        if (upDataId == -1){
+            System.out.println("取消修改房屋信息");
+            return;
+        }
+        House house = houseService.findByiId(upDataId);
+        if (house == null){
+            System.out.println("房屋信息不存在");
+            return;
+        }
+
+        //修改名字
+        System.out.println("姓名(" + house.getName() + "):");
+        //不修改信息的话这里给一个默认值“”
+        String name = Utility.readString(8, "");
+        //如果输入的不是空字符串，就是说明修改了数据
+        if (!"".equals(name)){
+            house.setName(name);
+        }
+
+        //修改电话
+        System.out.println("电话(" + house.getPhone() + "):");
+        //不修改信息的话这里给一个默认值“”
+        String phone = Utility.readString(12, "");
+        //如果输入的不是空字符串，就是说明修改了数据
+        if (!"".equals(phone)){
+            house.setPhone(phone);
+        }
+
+        //修改地址
+        System.out.println("地址(" + house.getAddress() + "):");
+        //不修改信息的话这里给一个默认值“”
+        String address = Utility.readString(12, "");
+        //如果输入的不是空字符串，就是说明修改了数据
+        if (!"".equals(address)){
+            house.setAddress(address);
+        }
+
+        //修改月租
+        System.out.println("月租(" + house.getRent() + "):");
+        //不修改信息的话这里给一个默认值“”
+        int rent = Utility.readInt(-1);
+        //如果输入的不是空字符串，就是说明修改了数据
+        if (rent != -1){
+            house.setRent(rent);
+        }
+
+        //修改状态
+        System.out.println("状态(" + house.getState() + "):");
+        //不修改信息的话这里给一个默认值“”
+        String  state = Utility.readString(3,"");
+        //如果输入的不是空字符串，就是说明修改了数据
+        if (!"".equals(state)){
+            house.setState(state);
+        }
+
     }
 
     //界面方法，显示主菜单
@@ -112,7 +174,7 @@ public class HouseView {
                     delHouse();
                     break;
                 case '4':
-                    System.out.println("修改");
+                   updataHouse();
                     break;
                 case '5':
                     listHouse();
