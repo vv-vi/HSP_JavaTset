@@ -67,6 +67,14 @@ public class HouseView {
         }
     }
 
+    //退出确认
+    public void exit(){
+        char c = Utility.readConfirmSelection();
+        if (c == 'Y'){
+            loop = false;
+        }
+    }
+
     //界面方法，显示主菜单
     public void mainMeun(){
         do {
@@ -96,8 +104,7 @@ public class HouseView {
                     listHouse();
                     break;
                 case '6':
-                    System.out.println("退出");
-                    loop = false;
+                   exit();
                     break;
             }
         }while (loop);
