@@ -99,6 +99,7 @@ public class HouseView {
             System.out.println("取消修改房屋信息");
             return;
         }
+        //判断是否修改成功
         House house = houseService.findByiId(upDataId);
         if (house == null){
             System.out.println("房屋信息不存在");
