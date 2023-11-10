@@ -69,6 +69,7 @@ public class HouseView {
 
     //退出确认
     public void exitHouse(){
+        //获取用户输入的字符，判断是否正确
         char c = Utility.readConfirmSelection();
         if (c == 'Y'){
             loop = false;
