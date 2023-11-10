@@ -24,11 +24,12 @@ public class HouseService {
     public House findByiId(int findId){
         //遍历数组
         for (int i = 0; i < houseNum; i++) {
+            //如果找到了，就返回房屋信息
             if (findId == houses[i].getId()){
                 return houses[i];
             }
         }
-
+        //没有找到就返回空
         return null;
     }
 
@@ -48,7 +49,7 @@ public class HouseService {
         }
         //如果找到
         for (int i = 0; i < houseNum - 1; i++) {
-            //这里是把要伤害的房屋信息放在数组的最后一个
+            //这里是把要删除的房屋信息放在数组的最后一个
             houses[i] = houses[i+1];
         }
         //把当有存在的房屋信息的最后一个，设置为null;
